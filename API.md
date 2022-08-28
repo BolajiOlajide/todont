@@ -23,3 +23,13 @@ Todont is the API that powers an imaginary application where you can add the thi
 ### Persistence
 
 Information is to be stored in a PostgreSQL database.
+
+#### Router
+
+I opted for [go-chi](https://github.com/go-chi/chi/) instead of [gorilla/mux](https://github.com/gorilla/mux) because of the following reasons:
+
+* `mux` & `go-chi` both have similar cons to their usage
+
+* `mux` contains some advanced features (such as custom routing rules, host-based routing or route 'reversing') which I do not have a need for
+
+* `go-chi` offers a number of middlewares out of the box
