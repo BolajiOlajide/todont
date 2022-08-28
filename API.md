@@ -33,3 +33,5 @@ I opted for [go-chi](https://github.com/go-chi/chi/) instead of [gorilla/mux](ht
 * `mux` contains some advanced features (such as custom routing rules, host-based routing or route 'reversing') which I do not have a need for
 
 * `go-chi` offers a number of middlewares out of the box
+
+[Link](https://www.alexedwards.net/blog/which-go-router-should-i-use)
