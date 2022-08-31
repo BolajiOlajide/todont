@@ -27,3 +27,9 @@ type user struct {
 func (u *user) String() string {
 	return fmt.Sprintf("User<ID=%d, Name=%s>", u.ID, u.Name)
 }
+
+type response struct {
+	Status  status `json:"status"`
+	Data    any    `json:"data"`
+	Message string `json:"message"`
+}

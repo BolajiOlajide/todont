@@ -4,5 +4,6 @@ import "net/http"
 
 // IndexRoute returns a simple text indicating the service is running.
 func indexRoute(w http.ResponseWriter, r *http.Request) {
-	respond(w, "Welcome to todont", http.StatusOK, true)
+	w.Write([]byte("Welcome to todont"))
+	// respond(w, r, "Welcome to todont", http.StatusOK, true)
 }

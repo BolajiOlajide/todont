@@ -5,20 +5,32 @@ import (
 	"net/http"
 )
 
-func respond(w http.ResponseWriter, data any, statusCode int, isText bool) {
-	var contentType string
-	if isText {
-		contentType = "text/plain"
+type status string
+
+const (
+	successStatus status = "success"
+	errorStatus   status = "error"
+)
+
+func respond(w http.ResponseWriter, r *http.Request, data any, statusCode int, ok bool) {
+	resp := response{}
+
+	if ok {
+		resp.Status = successStatus
+		resp.Data = data
+		resp.Message = ""
 	} else {
-		contentType = "application/json"
+		resp.Status = errorStatus
+		str, isString := data.(string)
+		if !isString {
+			resp.Message = "An error occurred while processing your request."
+		} else {
+			resp.Message = str
+		}
+		resp.Data = nil
 	}
 
 	w.WriteHeader(statusCode)
-	w.Header().Set("Content-Type", contentType)
-
-	if isText {
-		w.Write([]byte("Welcome to todont"))
-	} else {
-		json.NewEncoder(w).Encode(data)
-	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(r)
 }
