@@ -27,6 +27,10 @@ func main() {
 
 	r.Get("/", indexRoute)
 
+	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "Hmmmm 🌚 Are you lost?", http.StatusMethodNotAllowed)
+	})
+
 	fmt.Println("Server is running on port 3333")
 	err := http.ListenAndServe(":3333", r)
 	if err != nil {
