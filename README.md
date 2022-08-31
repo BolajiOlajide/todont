@@ -12,7 +12,6 @@ Todont is the API that powers an imaginary application where you can add the thi
 |-----------------	|--------	|--------------	|-----------------------------------------------------------	|
  /               	| GET    	| FALSE        	| Root route. Usually used to check if server is online.    	|
  /health         	| GET    	| FALSE        	| Display heatlh of the API service.                        	|
- /ping           	| GET    	| FALSE        	| Ping is used to check if the server is online.            	|
  /v1/auth/signup 	| POST   	| FALSE        	| Used to create a new account                              	|
  /v1/auth/login  	| POST   	| FALSE        	| used to authenticate a user                               	|
  /v1/me          	| GET    	| TRUE         	| used to fetch currently logged in user information        	|
