@@ -25,15 +25,11 @@ func main() {
 	// processing should be stopped.
 	r.Use(middleware.Timeout(60 * time.Second))
 
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("hello world"))
-	})
+	r.Get("/", indexRoute)
 
-	err := http.ListenAndServe(":3333", r)
 	fmt.Println("Server is running on port 3333")
-	fmt.Println("yo")
+	err := http.ListenAndServe(":3333", r)
 	if err != nil {
 		panic(err)
 	}
-
 }
