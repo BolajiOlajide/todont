@@ -16,3 +16,4 @@
 .DS_Store
 server
 todont
+.env

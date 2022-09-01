@@ -12,6 +12,8 @@ import (
 )
 
 func main() {
+	cfg := getConf()
+
 	r := chi.NewRouter()
 	r.Use(middleware.RequestID)
 	r.Use(middleware.RealIP)
@@ -31,9 +33,6 @@ func main() {
 		http.Error(w, "Hmmmm 🌚 Are you lost?", http.StatusMethodNotAllowed)
 	})
 
-	fmt.Println("Server is running on port 3333")
-	err := http.ListenAndServe(":3333", r)
-	if err != nil {
-		panic(err)
-	}
+	fmt.Println("Server is running on port " + cfg.Port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", cfg.Port), r))
 }
