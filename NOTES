@@ -1,0 +1,9 @@
+### 01-SEP-2022
+
+* Database connection
+    - Are you going to use your db connection for multiple goroutine threads?
+    - Pooling - Multiplexing
+    - Global connection
+        - works all the time but can be really hard to write test for this (had similar issue at Sourcegraph)
+        - especially w/ stubbing it out?
+* MIgration
